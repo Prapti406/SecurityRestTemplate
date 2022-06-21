@@ -30,7 +30,7 @@ import lombok.ToString;
 
 @Data
 @Entity
-@Table(name="user_table")
+@Table(name="users_table")
 @Setter
 @Getter
 @AllArgsConstructor
@@ -48,8 +48,8 @@ public class User {
 	@Size(max=10,message="Username not less than 2")
 	@Column(name="last_Name")
 	private String last_Name;
-	@Column(name="user_Name")
-	private String user_Name;
+	@Column(name="userName")
+	private String userName;
 	@Email(message="Please enter a valid email!!!!")
 	@Column(name="Email")
 	private String email;

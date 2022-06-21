@@ -36,12 +36,12 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
 	//find user by username
 	@Override
 	public Optional<User> findByUsername(String username) {
-		return userRepo.findByUsername(username);
+		return userRepo.findByUserName(username);
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<User> opt = userRepo.findByUsername(username);
+		Optional<User> opt = userRepo.findByUserName(username);
 		
 		org.springframework.security.core.userdetails.User springUser=null;
 		

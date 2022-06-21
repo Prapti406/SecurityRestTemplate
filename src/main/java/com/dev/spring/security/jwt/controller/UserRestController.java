@@ -54,8 +54,8 @@ public class UserRestController {
 		
 		//Validate username/password with DB(required in case of Stateless Authentication)
 		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-				request.getUsername(), request.getPassword()));
-		String token =util.generateToken(request.getUsername());
+				request.getUserName(), request.getPassword()));
+		String token =util.generateToken(request.getUserName());
 		return ResponseEntity.ok(new UserResponse(token,"Token generated successfully!"));
 	}
 	

@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.csrf().disable()    //Disabling CSRF as not using form based login
 			.authorizeRequests()
-			.antMatchers("/user/saveUser","/user/loginUser").permitAll()
+			.antMatchers("/user/saveUser","/user/loginUser","/admin/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.exceptionHandling()
@@ -63,13 +63,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.addFilterBefore(secFilter, UsernamePasswordAuthenticationFilter.class)
 			;
-		 http
-		 .authorizeRequests()
-		 .antMatchers("/admin/**")
-		 .hasRole("ADMIN")
-		 .anyRequest()// get put post
-         .fullyAuthenticated() // every request must be authenticated
-         .and().httpBasic();// basic security
-		 http.csrf().disable();
+		 
 	}
 }
